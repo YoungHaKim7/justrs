@@ -33,3 +33,9 @@ $ cd justrs
 $ cargo install --path .
 ```
 
+- `cargo install`
+
+```bash
+cargo install justrs
+```
+
