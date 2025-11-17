@@ -79,5 +79,6 @@ Available recipes:
     tp                    # cargo test -- --nocapture
     w                     # cargo watch(check & test & run)
     ws                    # cargo watch(simple only run)
+    xv STR                # hex view(cat "SEARCH" | rg -i --line-number --color=always "SEARCH"("rg -i <search>"))
     xx                    # hex view("rg -i <search>" | "grep -rni <search>")
 ```
