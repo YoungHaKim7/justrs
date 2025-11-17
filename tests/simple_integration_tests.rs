@@ -11,7 +11,7 @@ fn test_simple_command_execution() {
 
     // Create a simple test command
     let test_input = "echo 'Hello from test'";
-    let input_path = temp_dir.path().join("input.txt");
+    let input_path = temp_dir.path().join("test_output.txt");
     fs::write(&input_path, test_input).expect("Failed to write input.txt");
 
     // Backup original input.txt
@@ -53,7 +53,7 @@ fn test_file_creation_command() {
     let temp_dir = TempDir::new().expect("Failed to create temp dir");
 
     let test_input = "echo 'test content' > test_output.txt";
-    let input_path = temp_dir.path().join("input.txt");
+    let input_path = temp_dir.path().join("test_output.txt");
     fs::write(&input_path, test_input).expect("Failed to write input.txt");
 
     // Backup and replace input.txt
