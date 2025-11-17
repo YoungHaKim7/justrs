@@ -24,6 +24,14 @@
 [Justfile](https://github.com/casey/just) to assist a Rust project
   - [Just a command runner](https://just.systems/)
 
+# Dependencies
+
+- just install 
+
+```bash
+cargo install just
+```
+
 # Install
 
 ```bash
