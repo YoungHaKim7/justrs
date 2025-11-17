@@ -21,6 +21,11 @@ echo 'rustupdate:' >> justfile &&
 echo '    rustup update stable' >> justfile &&
 
 echo '' >> justfile &&
+echo '# cargo doc (documentation preview)' >> justfile &&
+echo 'doc:' >> justfile &&
+echo '	cargo doc --open' >> justfile &&
+
+echo '' >> justfile &&
 echo '# cargo run' >> justfile &&
 echo 'r:' >> justfile &&
 echo '    cargo r' >> justfile &&

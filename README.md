@@ -59,6 +59,7 @@ Available recipes:
     asm METHOD            # cargo asm
     c                     # cargo check(Test Before Deployment)
     clean                 # clean file
+    doc                   # cargo doc (documentation preview)
     eos                   # optimized assembly
     es                    # emit asm file
     ex                    # macro show(cargo expand)

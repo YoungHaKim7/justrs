@@ -51,4 +51,7 @@
 //! ```bash
 //! $ just r
 //! ```
+//!
+//! # justr prototype
+//! - [justr sprototype](https://github.com/YoungHaKim7/justrs/commit/7c0157ac24a406f7841e3b84e7dd321c560455fc)
 pub mod execute_shell_command;
