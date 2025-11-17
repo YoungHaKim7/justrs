@@ -95,6 +95,7 @@ echo '# cargo asm' >> justfile &&
 echo 'asm METHOD:' >> justfile &&
 echo '    cargo asm {{project_name}}::{{METHOD}}' >> justfile &&
 
+echo '' >> justfile &&
 echo '# (nightly)clang sanitize(ASan=address / LSan=leak / TSan=thread / MSan=memory / UBSan=undefined)' >> justfile &&
 echo '[linux]' >> justfile &&
 echo 'san SAN:' >> justfile &&
@@ -102,6 +103,7 @@ echo '    export RUSTFLAGS=-Zsanitizer={{SAN}} RUSTDOCFLAGS=-Zsanitizer={{SAN}}'
 echo '    just n' >> justfile &&
 echo '    cargo run -Zbuild-std --target x86_64-unknown-linux-gnu' >> justfile &&
 
+echo '' >> justfile &&
 echo '# hex view("rg -i <search>" | "grep -rni <search>")' >> justfile &&
 echo 'xx:' >> justfile &&
 echo '	cargo r' >> justfile &&
