@@ -25,7 +25,7 @@ fn test_simple_command_execution() {
 
     // Run the program
     let output = Command::new("cargo")
-        .args(&["run", "--bin", "justrs"])
+        .args(["run", "--bin", "justrs"])
         .output()
         .expect("Failed to run justrs");
 
@@ -65,7 +65,7 @@ fn test_file_creation_command() {
 
     // Run the program
     let output = Command::new("cargo")
-        .args(&["run", "--bin", "justrs"])
+        .args(["run", "--bin", "justrs"])
         .output()
         .expect("Failed to run justrs");
 
