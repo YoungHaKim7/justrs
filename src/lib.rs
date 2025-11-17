@@ -53,5 +53,6 @@
 //! ```
 //!
 //! # justr prototype
-//! - [justr sprototype](https://github.com/YoungHaKim7/justrs/commit/7c0157ac24a406f7841e3b84e7dd321c560455fc)
+//! - [justr prototype](https://github.com/YoungHaKim7/justrs/commit/7c0157ac24a406f7841e3b84e7dd321c560455fc)
+//! - [2nd prototype](https://docs.rs/justrs/0.1.2/src/justrs/execute_shell_command.rs.html#1-58)
 pub mod execute_shell_command;
