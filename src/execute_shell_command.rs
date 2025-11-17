@@ -3,9 +3,9 @@ use std::process::{Command, Output};
 pub type Result<T> = core::result::Result<T, Error>;
 pub type Error = Box<dyn std::error::Error>; // For early dev.
 
-pub fn execute_shell_command<T>(command: &str) -> Result<T> 
+pub fn execute_shell_command<T>(command: &str) -> Result<T>
 where
-    T: std::convert::From<std::string::String>
+    T: std::convert::From<std::string::String>,
 {
     let output: Output = Command::new("sh")
         .arg("-c")
