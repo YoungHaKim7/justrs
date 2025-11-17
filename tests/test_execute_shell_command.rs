@@ -2,9 +2,9 @@ use justrs::execute_shell_command::execute_shell_command;
 
 #[test]
 fn test_execute_shell_command_success() {
-    let result = execute_shell_command::<String>("echo 'Hello World'");
+    let result = execute_shell_command::<String>("echo 'Success : Hello World'");
     assert!(result.is_ok());
-    assert_eq!(result.unwrap(), "Success : Hello World\n");
+    assert_eq!(result.unwrap(), "Success : Hello World");
 }
 
 #[test]
@@ -21,11 +21,18 @@ fn test_execute_shell_command_failure() {
 //     assert!(error_msg.contains("error message"));
 // }
 
+#[test]
+fn parse_bool_from_command() {
+    // prints "true\n" to stdout, parse -> bool true
+    let v = execute_shell_command::<bool>("printf true").expect("should parse bool");
+    assert_eq!(v, true);
+}
+
 // #[test]
 // fn test_execute_shell_command_empty_output() {
-//     let result = execute_shell_command::<bool>("true");
+//     let result = execute_shell_command::<bool>(true);
 //     assert!(result.is_ok());
-//     assert_eq!(result.unwrap(), "");
+//     assert_eq!(result.unwrap(), false);
 // }
 
 #[test]
