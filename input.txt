@@ -1,6 +1,26 @@
 echo 'project_name := `basename "$(pwd)"`' > justfile &&
-echo '' >> justfile &&
 
+echo '' >> justfile &&
+echo '# just search "just a <search_str>"(cargo install ripgrep)' >> justfile &&
+echo 'a SEARCH:' >> justfile &&
+echo '    just -l | rg -i {{SEARCH}}' >> justfile &&
+
+echo '' >> justfile &&
+echo '# "rustup show" & remove toolchains' >> justfile &&
+echo 'toolremove TOOLCHAINS:' >> justfile &&
+echo '    rustup toolchain remove {{TOOLCHAINS}}' >> justfile &&
+
+echo '' >> justfile &&
+echo '# rust-analyzer is available in rustup:' >> justfile &&
+echo 'rupdate:' >> justfile &&
+echo '    rustup component add rust-analyzer' >> justfile &&
+
+echo '' >> justfile &&
+echo '# rust-lang(rustc) update stable' >> justfile &&
+echo 'rustupdate:' >> justfile &&
+echo '    rustup update stable' >> justfile &&
+
+echo '' >> justfile &&
 echo '# cargo run' >> justfile &&
 echo 'r:' >> justfile &&
 echo '    cargo r' >> justfile &&
