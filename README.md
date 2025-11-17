@@ -21,7 +21,8 @@
 <br/>
 
 # justrs
-[Justfile](https://github.com/casey/just) to assist a Rust project
+
+- [Justfile](https://github.com/casey/just) to assist a Rust project
   - [Just a command runner](https://just.systems/)
 
 # Dependencies
@@ -50,7 +51,7 @@ cargo install justrs
 
 # just list
 
-```
+```bash
 $ just -l
 
 Available recipes:
