@@ -15,3 +15,6 @@ categories = ["command-line-utilities", "development-tools", "development-tools:
 keywords = ["justfile"]
 
 [dependencies]
+
+[dev-dependencies]
+tempfile = "3.8"
