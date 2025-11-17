@@ -94,9 +94,21 @@ echo '# cargo asm' >> justfile &&
 echo 'asm METHOD:' >> justfile &&
 echo '    cargo asm {{project_name}}::{{METHOD}}' >> justfile &&
 
+echo '# (nightly)clang sanitize(ASan=address / LSan=leak / TSan=thread / MSan=memory / UBSan=undefined)' >> justfile &&
+echo '[linux]' >> justfile &&
+echo 'san SAN:' >> justfile &&
+echo '    export RUSTFLAGS=-Zsanitizer={{SAN}} RUSTDOCFLAGS=-Zsanitizer={{SAN}}' >> justfile &&
+echo '    just n' >> justfile &&
+echo '    cargo run -Zbuild-std --target x86_64-unknown-linux-gnu' >> justfile &&
+
+echo '# hex view("rg -i <search>" | "grep -rni <search>")' >> justfile &&
+echo 'xx:' >> justfile &&
+echo '	cargo r' >> justfile &&
+echo '	xxd -c 16 ./target/debug/{{project_name}} > ./target/debug/hex_print.txt' >> justfile &&
+
 echo '' >> justfile &&
 echo '# clean file' >> justfile &&
-echo 'cf:' >> justfile &&
+echo 'clean:' >> justfile &&
 echo '    rm -rf target ./config rust-toolchain.toml *.lock' >> justfile &&
 
 echo '' >> justfile &&
