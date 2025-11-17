@@ -29,7 +29,7 @@
 - just install 
 
 ```bash
-cargo install just
+cargo install just && cargo install ripgrep
 ```
 
 # Install
