@@ -36,7 +36,7 @@ cargo install just && cargo install ripgrep
 # Install
 
 ```bash
-$ https://github.com/YoungHaKim7/justrs
+$ git clone https://github.com/YoungHaKim7/justrs
 
 $ cd justrs
  
