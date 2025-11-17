@@ -1,3 +1,5 @@
+mod test_execute_shell_command;
+
 use std::{fs, process::Command};
 
 use tempfile::TempDir;
