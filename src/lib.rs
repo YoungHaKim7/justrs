@@ -1,4 +1,4 @@
-//! Justfile to assist a Rust project
+//! [Justfile](https://github.com/casey/just) to assist a Rust project
 //!
 //! # Install
 //!
