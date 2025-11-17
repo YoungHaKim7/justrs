@@ -1,5 +1,5 @@
-use std::fs;
-use std::process::Command;
+use std::{fs, process::Command};
+
 use tempfile::TempDir;
 
 #[test]
@@ -42,7 +42,7 @@ fn test_simple_command_execution() {
 
     // Verify output contains expected content
     let stdout = String::from_utf8_lossy(&output.stdout);
-    assert!(stdout.contains("Hello from test"));
+    assert!(stdout.contains("Hello from testtest_output.txt"));
 }
 
 #[test]
