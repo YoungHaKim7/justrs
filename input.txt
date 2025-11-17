@@ -24,8 +24,9 @@ echo '' >> justfile &&
 echo '# final review' >> justfile &&
 echo 'fi:' >> justfile &&
 echo '    cargo fmt --all -- --check' >> justfile &&
-echo '    cargo nextest run --all-features --no-fail-fast --workspace --no-capture' >> justfile &&
 echo '    cargo check --all-features --all-targets --all' >> justfile &&
+echo '    cargo doc --open' >> justfile &&
+echo '    cargo nextest run --all-features --no-fail-fast --workspace --no-capture' >> justfile &&
 echo '    cargo clippy --all-features --all-targets -- -D warnings' >> justfile &&
 echo '    cargo audit' >> justfile &&
 
