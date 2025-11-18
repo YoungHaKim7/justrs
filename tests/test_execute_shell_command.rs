@@ -25,7 +25,7 @@ fn test_execute_shell_command_failure() {
 fn parse_bool_from_command() {
     // prints "true\n" to stdout, parse -> bool true
     let v = execute_shell_command::<bool>("printf true").expect("should parse bool");
-    assert_eq!(v, true);
+    assert!(v);
 }
 
 // #[test]
