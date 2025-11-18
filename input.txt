@@ -131,14 +131,14 @@ echo '    cargo run -Zbuild-std --target x86_64-unknown-linux-gnu' >> justfile &
 echo '' >> justfile &&
 echo '# hex view("rg -i <search>" | "grep -rni <search>")' >> justfile &&
 echo 'xx:' >> justfile &&
-echo '	cargo r' >> justfile &&
-echo '	xxd -c 16 ./target/debug/{{project_name}} > ./target/debug/hex_print.txt' >> justfile &&
+echo '    cargo r' >> justfile &&
+echo '    xxd -c 16 ./target/debug/{{project_name}} > ./target/debug/hex_print.txt' >> justfile &&
 
 echo '' >> justfile &&
 echo '# hex view(cat "SEARCH" | rg -i --line-number --color=always "SEARCH"("rg -i <search>"))' >> justfile &&
 echo 'xv STR:' >> justfile &&
-echo '	just xx' >> justfile &&
-echo '	cat ./target/debug/hex_print.txt | rg -i --line-number --color=always {{STR}}' >> justfile &&
+echo '    just xx' >> justfile &&
+echo '    cat ./target/debug/hex_print.txt | rg -i --line-number --color=always {{STR}}' >> justfile &&
 
 echo '' >> justfile &&
 echo '# clean file' >> justfile &&
