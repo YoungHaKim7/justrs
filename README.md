@@ -46,7 +46,10 @@ $ cargo install --path .
 - `cargo install`
 
 ```bash
-cargo install justrs
+$ cargo install justrs
+
+# or (nightly ver)
+$ cargo install --git https://github.com/YoungHaKim7/justrs.git
 ```
 
 # just list
