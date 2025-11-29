@@ -36,7 +36,7 @@ echo 'rr:' >> justfile &&
 echo '    cargo run --release' >> justfile &&
 
 echo '' >> justfile &&
-echo '# cargo watch(check & test & run)' >> justfile &&
+echo '# cargo watch(check & test & run)(cargo install cargo-watch)' >> justfile &&
 echo 'w:' >> justfile &&
 echo '    cargo watch -x check -x test -x run' >> justfile &&
 
@@ -91,7 +91,7 @@ echo 'ex:' >> justfile &&
 echo '    cargo expand' >> justfile &&
 
 echo '' >> justfile &&
-echo '# emit mir file' >> justfile &&
+echo '# emit mir file(nightly)' >> justfile &&
 echo 'mir:' >> justfile &&
 echo '    cargo rustc -- -Zunpretty=mir > target/{{project_name}}.mir' >> justfile &&
 
@@ -111,7 +111,7 @@ echo 'llvm:' >> justfile &&
 echo '    cargo rustc -- --emit llvm-ir=target/{{project_name}}.ll' >> justfile &&
 
 echo '' >> justfile &&
-echo '# emit hir file' >> justfile &&
+echo '# emit hir file(nightly)' >> justfile &&
 echo 'hir:' >> justfile &&
 echo '    cargo rustc -- -Zunpretty=hir > target/{{project_name}}.hir' >> justfile &&
 
