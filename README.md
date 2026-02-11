@@ -87,3 +87,7 @@ Available recipes:
     xv STR                # hex view(cat "SEARCH" | rg -i --line-number --color=always "SEARCH"("rg -i <search>"))
     xx                    # hex view("rg -i <search>" | "grep -rni <search>")
 ```
+
+# justfile공부하기 좋다
+
+- https://github.com/lucasgelfond/zerobrew/blob/main/Justfile
