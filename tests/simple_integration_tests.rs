@@ -1,124 +1,63 @@
-mod test_execute_shell_command;
-
-use std::{fs, process::Command};
-
+use std::{env, fs, process::Command};
 use tempfile::TempDir;
 
 #[test]
-fn test_simple_command_execution() {
-    // Test that the program can execute a simple command
+fn test_justfile_creation() {
+    // Test that justrs creates a justfile in the current directory
     let temp_dir = TempDir::new().expect("Failed to create temp dir");
 
-    // Create a simple test command
-    let test_input = "echo 'Hello from test'";
-    let input_path = temp_dir.path().join("test_output.txt");
-    fs::write(&input_path, test_input).expect("Failed to write input.txt");
+    // Change to temp directory
+    let original_dir = env::current_dir().expect("Failed to get current dir");
+    env::set_current_dir(temp_dir.path()).expect("Failed to change to temp dir");
 
-    // Backup original input.txt
-    // let original_input_backup = "input.txt.backup";
-    // if fs::metadata("input.txt").is_ok() {
-    //     fs::copy("input.txt", original_input_backup).expect("Failed to backup input.txt");
-    // }
-
-    // Copy test input to current directory
-    // fs::copy(&input_path, "input.txt").expect("Failed to copy test input");
-
-    // Run the program
+    // Run the justrs binary
     let output = Command::new("cargo")
-        .args(["run", "--bin", "justrs"])
+        .args(["run", "--bin", "justrs", "--manifest-path", &format!("{}/Cargo.toml", original_dir.display())])
         .output()
         .expect("Failed to run justrs");
 
-    // Restore original input.txt
-    // if fs::metadata(original_input_backup).is_ok() {
-    //     fs::copy(original_input_backup, "input.txt").expect("Failed to restore input.txt");
-    //     fs::remove_file(original_input_backup).expect("Failed to remove backup");
-    // }
+    // Restore original directory
+    env::set_current_dir(&original_dir).expect("Failed to restore original dir");
 
-    // Verify program executed successfully
-    if !output.status.success() {
-        let stderr = String::from_utf8_lossy(&output.stderr);
-        let stdout = String::from_utf8_lossy(&output.stdout);
-        panic!("Program failed. stderr: {}, stdout: {}", stderr, stdout);
-    }
+    // Verify the program executed successfully
+    assert!(output.status.success(), "Program should execute successfully. stderr: {}", String::from_utf8_lossy(&output.stderr));
 
-    // Verify output contains expected content
-    let _stdout = String::from_utf8_lossy(&output.stdout);
-    // assert!(stdout.contains("Hello from testtest_output.txt"));
+    // Verify justfile was created
+    let justfile_path = temp_dir.path().join("justfile");
+    assert!(justfile_path.exists(), "justfile should be created");
+
+    // Verify justfile contains expected content
+    let content = fs::read_to_string(&justfile_path).expect("Failed to read justfile");
+    assert!(content.contains("project_name :="), "justfile should contain project_name variable");
+    assert!(content.contains("# cargo run"), "justfile should contain run recipe");
 }
 
 #[test]
-fn test_file_creation_command() {
-    // Test that the program can create files
+fn test_justfile_template_validity() {
+    // Test that the generated justfile has valid syntax
     let temp_dir = TempDir::new().expect("Failed to create temp dir");
 
-    let test_input = "echo 'test content' > test_output.txt";
-    let input_path = temp_dir.path().join("test_output.txt");
-    fs::write(&input_path, test_input).expect("Failed to write input.txt");
+    // Change to temp directory
+    let original_dir = env::current_dir().expect("Failed to get current dir");
+    env::set_current_dir(temp_dir.path()).expect("Failed to change to temp dir");
 
-    // Backup and replace input.txt
-    let original_input_backup = "input.txt.backup";
-    if fs::metadata("input.txt").is_ok() {
-        fs::copy("input.txt", original_input_backup).expect("Failed to backup input.txt");
-    }
-    fs::copy(&input_path, "input.txt").expect("Failed to copy test input");
-
-    // Run the program
-    let output = Command::new("cargo")
-        .args(["run", "--bin", "justrs"])
+    // Run justrs
+    let _ = Command::new("cargo")
+        .args(["run", "--bin", "justrs", "--manifest-path", &format!("{}/Cargo.toml", original_dir.display())])
         .output()
         .expect("Failed to run justrs");
 
-    // Restore original input.txt
-    // if fs::metadata(original_input_backup).is_ok() {
-    //     fs::copy(original_input_backup, "input.txt").expect("Failed to restore input.txt");
-    //     fs::remove_file(original_input_backup).expect("Failed to remove backup");
-    // }
+    // Restore original directory
+    env::set_current_dir(&original_dir).expect("Failed to restore original dir");
 
-    // Clean up test file
-    if fs::metadata("test_output.txt").is_ok() {
-        fs::remove_file("test_output.txt").expect("Failed to remove test file");
+    // Try to list recipes using 'just' (if available)
+    let just_output = Command::new("just")
+        .args(["-l", "--unstable"])
+        .current_dir(temp_dir.path())
+        .output();
+
+    // If 'just' is installed, verify the justfile is valid
+    if let Ok(output) = just_output {
+        assert!(output.status.success(), "Generated justfile should be valid. stderr: {}", String::from_utf8_lossy(&output.stderr));
     }
-
-    assert!(
-        output.status.success(),
-        "Program should execute successfully"
-    );
 }
-
-// #[test]
-// fn test_error_handling() {
-//     // Test that the program handles command errors gracefully
-//     let temp_dir = TempDir::new().expect("Failed to create temp dir");
-
-//     let test_input = "exit 1";
-//     let input_path = temp_dir.path().join("input.txt");
-//     fs::write(&input_path, test_input).expect("Failed to write input.txt");
-
-//     // Backup and replace input.txt
-//     let original_input_backup = "input.txt.backup";
-//     if fs::metadata("input.txt").is_ok() {
-//         fs::copy("input.txt", original_input_backup).expect("Failed to backup input.txt");
-//     }
-//     fs::copy(&input_path, "input.txt").expect("Failed to copy test input");
-
-//     // Run the program
-//     let output = Command::new("cargo")
-//         .args(&["run", "--bin", "justrs"])
-//         .output()
-//         .expect("Failed to run justrs");
-
-//     // Restore original input.txt
-//     if fs::metadata(original_input_backup).is_ok() {
-//         fs::copy(original_input_backup, "input.txt").expect("Failed to restore input.txt");
-//         fs::remove_file(original_input_backup).expect("Failed to remove backup");
-//     }
-
-//     // Program should still exit successfully even if the command fails
-//     // (it should handle the error and print it to stderr)
-//     assert!(output.status.success(), "Program should handle errors gracefully");
-
-//     // Check that error message is printed to stderr
-//     let stderr = String::from_utf8_lossy(&output.stderr);
-//     assert!(stderr.contains("Error"));
-// }
