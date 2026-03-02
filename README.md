@@ -91,6 +91,7 @@ Available recipes:
 - https://github.com/lucasgelfond/zerobrew/blob/main/Justfile
 
 # cargo-audit(보안 업데이트)
+- https://rustsec.org
 
 ```bash
 $ cargo install cargo-audit --locked
