@@ -133,10 +133,10 @@ gi:
     echo "# Result" >> README.md
     echo "" >> README.md
     echo "" >> README.md
-    echo "```bash" >> README.md
+    echo '```bash' >> README.md
     echo "" >> README.md
     echo "" >> README.md
-    echo "```" >> README.md
+    echo '```' >> README.md
     echo "" >> README.md
     echo "# Visual Studio 2015/2017 cache/options directory" > .gitignore
     echo ".vs/" >> .gitignore
