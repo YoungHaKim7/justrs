@@ -9,7 +9,10 @@ fn main() {
 
     match fs::write(&justfile_path, JUSTFILE_TEMPLATE) {
         Ok(_) => {
-            println!("justfile created successfully at: {}", justfile_path.display());
+            println!(
+                "justfile created successfully at: {}",
+                justfile_path.display()
+            );
         }
         Err(error) => {
             eprintln!("Error creating justfile: {}", error);

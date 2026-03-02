@@ -91,3 +91,14 @@ Available recipes:
 # justfile공부하기 좋다
 
 - https://github.com/lucasgelfond/zerobrew/blob/main/Justfile
+
+# cargo-audit(보안 업데이트)
+
+```bash
+$ cargo install cargo-audit --locked
+```
+
+# AI fix
+
+- All tests pass. The fix was to use `.current_dir(temp_dir.path())` on the Command instead of changing the process's current directory with
+  - `env::set_current_dir()`. This ensures cargo run executes in the temp directory and creates the justfile in the correct location.
