@@ -55,8 +55,6 @@ $ cargo install --git https://github.com/YoungHaKim7/justrs.git
 # just list
 
 ```bash
-$ just -l
-
 Available recipes:
     a SEARCH              # just search "just a <search_str>"(cargo install ripgrep)
     asm METHOD            # cargo asm
@@ -68,9 +66,9 @@ Available recipes:
     ex                    # macro show(cargo expand)
     fi                    # final review
     gi                    # .gitignore setting
-    hir                   # emit hir file
+    hir                   # emit hir file(nightly)
     llvm                  # emit llvm-ir file
-    mir                   # emit mir file
+    mir                   # emit mir file(nightly)
     n                     # nightly setting(faster compilation)
     r                     # cargo run
     rr                    # (optimization)cargo run --release
@@ -82,7 +80,7 @@ Available recipes:
     tnp                   # nightly(cargo nextest run --nocapture)
     toolremove TOOLCHAINS # "rustup show" & remove toolchains
     tp                    # cargo test -- --nocapture
-    w                     # cargo watch(check & test & run)
+    w                     # cargo watch(check & test & run)(cargo install cargo-watch)
     ws                    # cargo watch(simple only run)
     xv STR                # hex view(cat "SEARCH" | rg -i --line-number --color=always "SEARCH"("rg -i <search>"))
     xx                    # hex view("rg -i <search>" | "grep -rni <search>")
