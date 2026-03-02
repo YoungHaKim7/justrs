@@ -1,15 +1,15 @@
 [package]
 name = "justrs"
-version = "0.1.6"
+version = "0.2.1"
 edition = "2024"
-rust-version = "1.91"
+rust-version = "1.93.1"
 authors = ["GYoung <ytok1108@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/YoungHaKim7/justrs"
 documentation = "https://docs.rs/justrs"
 description = """
-input.txt You can change the justfile I want. It's for Rust only.
+'justfile_temple.just' file You can change the justfile I want. It's for Rust only.
 """
 categories = ["command-line-utilities", "development-tools", "development-tools::build-utils"]
 keywords = ["justfile"]
