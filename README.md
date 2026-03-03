@@ -97,6 +97,11 @@ Available recipes:
 $ cargo install cargo-audit --locked
 ```
 
+# **["2>&1"은 무엇을 의미하나?](<https://news.hada.io/topic?id=27061&utm_source=discord&utm_medium=bot&utm_campaign=1480>)**
+- **표준 오류(stderr)** 와 **표준 출력(stdout)** 을 하나의 스트림으로 합치기 위해 사용하는 **리디렉션 구문**  
+- 숫자 **1은 stdout**, **2는 stderr**를 의미하며, `&`는 **파일 디스크립터를 참조**한다는 표시로 사용됨  
+- `2>&1`은 “stderr를 현재 stdout이 향하는 곳으로 보낸다”는 뜻이며, **출력 순서에…
+
 # AI fix
 
 - All tests pass. The fix was to use `.current_dir(temp_dir.path())` on the Command instead of changing the process's current directory with
