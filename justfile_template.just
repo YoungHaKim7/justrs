@@ -22,11 +22,11 @@ doc:
 
 # cargo run
 r:
-    cargo r
+    cargo r 2>&1
 
 # (optimization)cargo run --release
 rr:
-    cargo run --release
+    cargo run --release 2>&1
 
 # cargo watch(check & test & run)(cargo install cargo-watch)
 w:
