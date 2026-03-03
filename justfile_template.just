@@ -51,7 +51,7 @@ c:
 
 # cargo test
 t:
-    cargo t
+    cargo t 2>&1
 
 # cargo expand(test --lib)
 tex:
@@ -59,15 +59,15 @@ tex:
 
 # cargo test -- --nocapture
 tp:
-    cargo t -- --nocapture
+    cargo t -- --nocapture 2>&1
 
 # nightly(cargo nextest run)
 tn:
-    cargo nextest run
+    cargo nextest run 2>&1
 
 # nightly(cargo nextest run --nocapture)
 tnp:
-    cargo nextest run --nocapture
+    cargo nextest run --nocapture 2>&1
 
 # macro show(cargo expand)
 ex:
