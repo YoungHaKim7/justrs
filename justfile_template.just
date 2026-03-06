@@ -40,9 +40,9 @@ ws:
 fi:
     cargo fmt --all -- --check
     cargo check --all-features --all-targets --all
-    cargo doc --open
     cargo nextest run --all-features --no-fail-fast --workspace --no-capture
     cargo clippy --all-features --all-targets -- -D warnings
+    cargo doc --open
     cargo audit
 
 # cargo check(Test Before Deployment)
