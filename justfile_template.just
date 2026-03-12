@@ -61,7 +61,7 @@ tex:
 tp:
     cargo t -- --nocapture 2>&1
 
-# nightly(cargo nextest run)
+# nightly(cargo nextest run)(cargo install --locked cargo-nextest)
 tn:
     cargo nextest run 2>&1
 
