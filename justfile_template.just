@@ -93,7 +93,7 @@ llvm:
 hir:
     cargo rustc -- -Zunpretty=hir > target/{{project_name}}.hir
 
-# cargo asm
+# cargo asm(cargo install cargo-show-asm)
 asm METHOD:
     cargo asm {{project_name}}::{{METHOD}}
 
