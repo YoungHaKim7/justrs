@@ -106,3 +106,6 @@ $ cargo install cargo-audit --locked
 
 - All tests pass. The fix was to use `.current_dir(temp_dir.path())` on the Command instead of changing the process's current directory with
   - `env::set_current_dir()`. This ensures cargo run executes in the temp directory and creates the justfile in the correct location.
+
+# PowerShell script로 바꾼 버젼
+- https://github.com/YoungHaKim7/ps_powershell_script_c_cpp_rust_zig
