@@ -28,6 +28,10 @@ r:
 rr:
     cargo run --release 2>&1
 
+# cargo check(Check only the top 20 lines of the error message)
+cs:
+    cargo chekck 2>&1 | head -20
+
 # cargo watch(check & test & run)(cargo install cargo-watch)
 w:
     cargo watch -x check -x test -x run
